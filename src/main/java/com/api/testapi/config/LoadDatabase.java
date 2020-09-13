@@ -1,7 +1,7 @@
 package com.api.testapi.config;
 
-import com.api.testapi.model.Location;
-import com.api.testapi.repository.LocationRepository;
+import com.api.testapi.model.User;
+import com.api.testapi.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -13,11 +13,13 @@ public class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
     @Bean
-    CommandLineRunner initDatabase(LocationRepository repository) {
+    CommandLineRunner initDatabase(UserRepository repository) {
         return args -> {
-            log.info("Preloading " + repository.save(new Location("Bilbo Baggins", "burglar")));
-            log.info("Preloading " + repository.save(new Location(" Baggins", "lar")));
-            log.info("Preloading " + repository.save(new Location(" Dgins", "lttyr")));
+            log.info("Preloading " + repository.save(new User("Tom", "Burglar")));
+            log.info("Preloading " + repository.save(new User("John", "SalesMan")));
+            log.info("Preloading " + repository.save(new User("Douglas", "Driver")));
+            log.info("Preloading " + repository.save(new User("Tim", "Engineer")));
+            log.info("Preloading " + repository.save(new User("Red", "Agent")));
         };
     }
 }

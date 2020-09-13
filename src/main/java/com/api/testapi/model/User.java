@@ -6,20 +6,20 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Location {
+public class User {
 
     private @Id
     @GeneratedValue Long id;
     private String name;
-    private String address;
+    private String job;
 
-    public Location() {
+    public User() {
     }
 
-    public Location(String name, String address) {
+    public User(String name, String job) {
 
         this.name = name;
-        this.address = address;
+        this.job = job;
     }
 
     public Long getId() {
@@ -30,8 +30,8 @@ public class Location {
         return name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getJob() {
+        return job;
     }
 
     public void setId(Long id) {
@@ -42,31 +42,31 @@ public class Location {
         this.name = name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setJob(String job) {
+        this.job = job;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Location location = (Location) o;
-        return Objects.equals(id, location.id) &&
-                Objects.equals(name, location.name) &&
-                Objects.equals(address, location.address);
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(job, user.job);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, address);
+        return Objects.hash(id, name, job);
     }
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                ", job='" + job + '\'' +
                 '}';
     }
 }

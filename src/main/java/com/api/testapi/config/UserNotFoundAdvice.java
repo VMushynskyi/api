@@ -1,6 +1,6 @@
 package com.api.testapi.config;
 
-import com.api.testapi.exceptions.LocationNotFoundException;
+import com.api.testapi.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class LocationNotFoundAdvice {
+public class UserNotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(LocationNotFoundException.class)
+    @ExceptionHandler(UserNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String locationNotFoundHandler(LocationNotFoundException exception){
+    String userNotFoundHandler(UserNotFoundException exception){
         return exception.getMessage();
     }
 }
